@@ -1,0 +1,4 @@
+@summary
+there's a place in france where the robots do a dance. and that place is tedxconcorde, where bruno maisonnier of aldebaran robotics choreographs a troupe of tiny humanoid nao robots through a surprisingly emotive performance.
+@article
+(Mechanical noises)(Music) (Applause)
