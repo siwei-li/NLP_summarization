@@ -1,0 +1,2 @@
+ - Basic Transmission Genetics
+Genetic transmission is the mechanism that drives evolution. DNA encodes all the information necessary to make an organism. Every organism’s DNA is made of the same basic parts, arranged in different orders. DNA is divided into chromosomes, or groups of genes, which code for proteins. Asexually reproducing organisms reproduce using mitosis, while sexually reproducing organisms reproduce using meiosis. Both these mechanisms involve duplication of DNA, which then gets passed to offspring. RNA is a key component in the duplication of DNA.

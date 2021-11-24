@@ -1,0 +1,2 @@
+ - The Prisoner's Dilemma
+Two game theoretical problems–the Prisoner’s Dilemma and the Problem of the Commons–are explored in detail. Both collective decision-making scenarios are structured such that all parties making rational choices ensures a less desired outcome for each than if each had chosen individually-less-preferred options. To conclude, Professor Gendler discusses various strategies that can be used to address both problems.Prisoner’s Dilemma online game

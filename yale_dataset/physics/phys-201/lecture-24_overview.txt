@@ -1,0 +1,2 @@
+ - Quantum Mechanics VI: Time-Dependent Schrödinger Equation
+The time-dependent Schrödinger Equation is introduced as a powerful analog of Newton’s second law of motion that describes quantum dynamics. It is shown how given an initial wave function, one can predict the future behavior using Schrödinger’s Equation. The special role of stationary states (states of definite energy) is discussed.

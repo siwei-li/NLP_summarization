@@ -1,0 +1,2 @@
+ - Maxwell's Equations and Electromagnetic Waves II
+The physical meaning of the components of the wave equation and their applications are discussed. The power carried by the wave is derived. The fact that, unlike Newton’s laws, Maxwell’s equations are already consistent with relativity is discussed. The existence of magnetism is deduced from a thought experiment using relativity.

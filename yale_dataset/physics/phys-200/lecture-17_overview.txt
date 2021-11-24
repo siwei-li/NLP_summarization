@@ -1,0 +1,2 @@
+ - Simple Harmonic Motion
+The focus of the lecture is simple harmonic motion. Professor Shankar gives several examples of physical systems, such as a mass M attached to a spring, and explains what happens when such systems are disturbed. Amplitude, frequency and period of simple harmonic motion are also defined in the course of the lecture. Several problems are solved in order to demonstrate various cases of oscillation.

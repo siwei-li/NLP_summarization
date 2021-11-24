@@ -1,0 +1,2 @@
+ - Greenhouse Effect, Habitability
+A simple model of the overall Earth’s heat budget is derived. The Earth is assumed to be in equilibrium with the input of solar radiation balanced by the output of infrared radiation emitted by the Earth’s surface. Using this model, the Earth’s surface temperature is calculated to be cooler than in reality due to the lack of an atmosphere and the greenhouse effect in the model.

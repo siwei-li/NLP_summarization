@@ -1,0 +1,2 @@
+ - X-Ray Diffraction
+Professor McBride introduces the theory behind light diffraction by charged particles and its application to the study of the electron distribution in molecules by x-ray diffraction. The roles of molecular pattern and crystal lattice repetition are illustrated by shining laser light through diffraction masks to generate patterns reminiscent of those encountered in X-ray studies of ordered solids.Professor McBride’s website resource for CHEM 125 (Fall 2008)

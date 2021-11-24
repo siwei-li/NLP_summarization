@@ -1,0 +1,2 @@
+ - Simple Harmonic Motion (cont.) and Introduction to Waves
+This lecture continues the topic of harmonic motions. Problems are introduced and solved to explore various aspects of oscillation. The second half of the lecture is an introduction to the nature and behavior of waves. Both longitudinal and transverse waves are defined and explained.

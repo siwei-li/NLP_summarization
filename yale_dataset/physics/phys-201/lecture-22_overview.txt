@@ -1,0 +1,2 @@
+ - Quantum Mechanics IV: Measurement Theory, States of Definite Energy
+It is shown how to extract the odds for getting different values of momentum from a generic wave function by writing it as a sum over functions of definite momentum. A recipe is given for finding states of definite energy, which requires solving a differential equation that depends on what potential the particle is experiencing. The particle in a box is considered and the allowed energies derived.

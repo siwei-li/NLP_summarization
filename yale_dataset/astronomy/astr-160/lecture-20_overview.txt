@@ -1,0 +1,2 @@
+ - Dark Matter
+This lecture introduces an important concept related to the past and future of the universe: the Scale factor, which is a function of time. With reference to a graph whose coordinates are the Scale factor and time, the problem of dark matter is addressed again. Cosmological redshifts are measured to determine the scale of the universe. The discovery of the repulsive, anti-gravitational force of dark energy is explained. The lecture concludes with discussion of Einstein’s biggest mistake: the invention of the cosmological constant to balance gravity.

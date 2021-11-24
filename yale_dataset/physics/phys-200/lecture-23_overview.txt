@@ -1,0 +1,2 @@
+ - The Second Law of Thermodynamics and Carnot's Engine
+Why does a dropped egg that spatters on the floor not rise back to your hands even though no laws prohibit it? The answer to such irreversibility resides the Second Law of Thermodynamics which explained in this and the next lecture. The Carnot heat engine is discussed in detail to show how there is an upper limit to the efficiency of heat engines and how the concept of entropy arises from macroscopic considerations.

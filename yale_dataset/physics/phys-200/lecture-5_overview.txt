@@ -1,0 +1,2 @@
+ - Work-Energy Theorem and Law of Conservation of Energy
+The lecture begins with a review of the loop-the-loop problem. Professor Shankar then reviews basic terminology in relation to work, kinetic energy and potential energy. He then goes on to define the Work-Energy Theorem. Finally, the Law of Conservation of Energy is discussed and demonstrated with specific examples.

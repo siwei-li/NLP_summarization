@@ -1,0 +1,2 @@
+ - Introduction to the Four-Vector
+The four-vector is introduced that unifies space-time coordinates x, y, z and t into a single entity whose components get mixed up under Lorentz transformations. The length of this four-vector, called the space-time interval, is shown to be invariant (the same for all observers). Likewise energy and momentum are unified into the energy-momentum four-vector.

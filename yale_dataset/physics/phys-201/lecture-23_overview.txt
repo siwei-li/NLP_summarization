@@ -1,0 +1,2 @@
+ - Quantum Mechanics V: Particle in a Box
+The allowed energy states of a free particle on a ring and a particle in a box are revisited. A scattering problem is studied to expose more quantum wonders: a particle can tunnel into the classically forbidden regions where kinetic energy is negative, and a particle incident on a barrier with enough kinetic energy to go over it has a nonzero probability to bounce back.

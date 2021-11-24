@@ -1,0 +1,2 @@
+ - The Boltzmann Constant and First Law of Thermodynamics
+This lecture continues the topic of thermodynamics, exploring in greater detail what heat is, and how it is generated and measured. The Boltzmann Constant is introduced. The microscopic meaning of temperature is explained. The First Law of Thermodynamics is presented.

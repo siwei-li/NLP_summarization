@@ -1,0 +1,2 @@
+ - Evolutionary Medicine
+Evolution plays an important though underutilized role in medicine. Evolution guides how our bodies respond to various treatments, how pathogens will respond to treatments, and how pathogens’ responses will change over time. Pathogens oftentimes will evolve to an intermediate level of virulence where they become strong enough to infect a host and reproduce, but not so strong as to kill the host before it can spread the pathogen.

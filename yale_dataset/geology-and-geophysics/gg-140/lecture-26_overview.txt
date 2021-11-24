@@ -1,0 +1,2 @@
+ - Isotope Evidence for Climate Change
+Isotopes are used to measure past climate properties. Deuterium and oxygen 18 are the most commonly used climate proxies. Lighter isotopes evaporate more readily from the ocean, so water vapor in the atmosphere is isotopically lighter than ocean water. This vapor gets lighter still as it is transported to higher latitudes while losing mass by precipitation. These processes leave an isotopic signal of temperature and continental ice volume in ice cores and deep sea sediment cores.

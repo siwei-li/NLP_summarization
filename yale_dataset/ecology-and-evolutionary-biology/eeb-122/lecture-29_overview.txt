@@ -1,0 +1,2 @@
+ - Island Biogeography and Invasive Species
+Geography is very important in ecology. Two major systems have been designed to model this, island biogeography and metapopulations. The idea of metapopulations is more recent, and has emerged as the dominant theory. Metapopulations are populations in multiple neighboring areas. The population of a species in any individual area may go extinct, but the metapopulation still survives. The theory of metapopulations has gained momentum in recent years because of its applications to epidemiology, the study of diseases.

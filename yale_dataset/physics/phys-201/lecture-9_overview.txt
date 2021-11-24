@@ -1,0 +1,2 @@
+ - Magnetism II
+The mechanism by which electric currents produce a magnetic field (Law of Biot-Savart) is discussed in greater detail. The field due to a single loop and an infinite wire are computed. Ampere’s Law is derived. The operation of the DC electric motor is used to illustrate the torque generated on moving charges in a magnetic field.

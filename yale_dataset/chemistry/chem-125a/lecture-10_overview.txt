@@ -1,0 +1,2 @@
+ - Reality and the Orbital Approximation
+In discussions of the Schrödinger equation thus far, the systems described were either one-dimensional or involved a single electron. After discussing how increased nuclear charge affects the energies of one-electron atoms and then discussing hybridization, this lecture finally addresses the simple fact that multi-electron systems cannot be properly described in terms of one-electron orbitals.Professor McBride’s website resource for CHEM 125 (Fall 2008)

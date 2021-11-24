@@ -1,0 +1,2 @@
+ - Vectors in Multiple Dimensions
+In this lecture, Professor Shankar discusses motion in more than one dimension. Vectors are introduced and discussed in multiple dimensions. Vector magnitude and direction are also explained. Null vectors, minus vectors, unit and velocity vectors are discussed along with their properties. Finally, several specific problems are solved to demonstrate how vectors can be added, and problems of projectile motion are expounded.

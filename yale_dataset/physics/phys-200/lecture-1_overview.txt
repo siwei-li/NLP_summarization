@@ -1,0 +1,2 @@
+ - Course Introduction and Newtonian Mechanics
+Professor Shankar introduces the course and answers student questions about the material and the requirements. He gives an overview of Newtonian mechanics and explains its two components: kinematics and dynamics. He then reviews basic concepts in calculus through two key equations: x = x + vt + ½ at and v = v+ 2 a (x-x), tracing the fate of a particle in one dimension along the x-axis.

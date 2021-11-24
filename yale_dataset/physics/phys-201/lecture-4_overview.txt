@@ -1,0 +1,2 @@
+ - Gauss's Law and Application to Conductors and Insulators
+Lecture begins with a recap of Gauss’s Law, its derivation, its limitation and its applications in deriving the electric field of several symmetric geometries—like the infinitely long wire. The electrical properties of conductors and insulators are discussed. Multiple integrals are briefly reviewed.

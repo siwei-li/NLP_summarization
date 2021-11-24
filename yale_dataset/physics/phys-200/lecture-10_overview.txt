@@ -1,0 +1,2 @@
+ - Rotations, Part II: Parallel Axis Theorem
+Part II of Rotations. The lecture begins with an explanation of the Parallel Axis Theorem and how it is applied in problems concerning rotation of rigid bodies. The moment of inertia of a disk is discussed as a demonstration of the theorem. Angular momentum and angular velocity are examined in a variety of problems.

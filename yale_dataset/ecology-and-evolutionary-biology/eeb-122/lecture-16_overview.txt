@@ -1,0 +1,2 @@
+ - Comparative Methods: Trees, Maps, and Traits
+We can use methods of genetic analysis to connect phylogenic information to geographical histories. Human migration has left genetic traces on every continent, and allows us to trace our roots back to Africa. Molecular genetic methods allow us to determine whether or not trait states were ancestral, which can have profound implications for fundamental biological ideas.

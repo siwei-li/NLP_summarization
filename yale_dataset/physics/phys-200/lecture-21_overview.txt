@@ -1,0 +1,2 @@
+ - Thermodynamics
+This is the first of a series of lectures on thermodynamics. The discussion begins with understanding “temperature.” Zeroth’s law is introduced and explained. Concepts such as “absolute zero” and “triple point of water” are defined. Measuring temperature through a number of instruments is addressed as well as the different scales of measurement. The second half of the lecture is devoted to heat and heat transfer. Concepts such as “convection” and “conduction” are explained thoroughly.

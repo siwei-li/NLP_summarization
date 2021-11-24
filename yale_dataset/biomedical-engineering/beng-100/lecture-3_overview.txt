@@ -1,0 +1,2 @@
+ - Genetic Engineering
+Professor Saltzman introduces the elements of molecular structure of DNA such as backbone, base composition, base pairing, and directionality of nucleic acids. He describes the processes of DNA synthesis, transcription, RNA splicing, translation, and post-translational processing required to make a protein such as insulin from its genetic code (DNA). Professor Saltzman describes the genetic code. RNA interference is also discussed as a way to control gene expression, which can be applied as a new way to treat diseases.

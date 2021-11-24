@@ -1,0 +1,2 @@
+ - Newton's Laws (cont.) and Inclined Planes
+The lecture begins with the application of Newton’s three laws, with the warning that they are not valid for objects that move at speeds comparable to the speed of light or objects that are incredibly small and of the atomic scale. Friction and static friction are discussed. The dreaded inclined plane is dealt with head on. Finally, Professor Shankar explains the motion of objects using Newton’s laws in specific problems related to objects in circular motion, such as roller coasters and a planet orbiting the Sun.

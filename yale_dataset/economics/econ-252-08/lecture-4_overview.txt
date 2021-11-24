@@ -1,0 +1,2 @@
+ - Portfolio Diversification and Supporting Financial Institutions (CAPM Model)
+Portfolio diversification is the most fundamental concept of risk management. The allocation of financial resources in stocks, bonds, riskless, assets, oil and other assets determine the expected return and risk of a portfolio. Taking account of covariances and expected returns, investors can create a diversified portfolio that maximizes expected return for a given level of risk. An important mission of financial institutions is to provide portfolio-diversification services.

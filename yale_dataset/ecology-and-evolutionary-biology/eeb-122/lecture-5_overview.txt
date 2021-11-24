@@ -1,0 +1,2 @@
+ - How Selection Changes the Genetic Composition of Population
+Genetics controls evolution. There are four major genetic systems, which are combinations of sexual/asexual and haploid/diploid. In all genetic systems, adaptive genetic change tends to start out slow, accelerate in the middle, and occur slowly at the end. Asexual haploids can change the fastest, while sexual diploids usually change the slowest. Gene frequencies in large populations only change if the population undergoes selection.

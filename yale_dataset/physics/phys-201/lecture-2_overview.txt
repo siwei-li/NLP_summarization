@@ -1,0 +1,2 @@
+ - Electric Fields
+The electric field is introduced as the mediator of electrostatic interactions: objects generate the field which permeates all of space, and charged objects in the field experience a force with magnitude proportional to their charge. Several instructive examples are given, including the field of an electric dipole and the notion of the electric dipole and dipole moment. The notion of field lines is introduced.

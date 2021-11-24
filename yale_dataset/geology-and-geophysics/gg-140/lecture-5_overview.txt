@@ -1,0 +1,2 @@
+ - Earth Systems Analysis (Tank Experiment)
+Several experiments are performed using a water tank with an input flow of water and an output flow. These experiments demonstrate the concepts of equilibrium and steady-state in system analysis and are analogous to various Earth systems; lakes and rivers and the overall heat budget of the planet. The greenhouse effect in the atmosphere is a mechanism for increasing the heat input from the sun in the overall heat budget of the Earth system.

@@ -1,0 +1,2 @@
+ - Dynamics of a Multiple-Body System and Law of Conservation of Momentum
+The dynamics of a many-body system is examined. Through a variety of examples, the professor demonstrates how to locate the center of mass and how to evaluate it for a number of objects. Finally, the Law of Conservation of Momentum is introduced and discussed. The lecture ends with problems of collision in one dimension focusing on the totally elastic and totally inelastic cases.

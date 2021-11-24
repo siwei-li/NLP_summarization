@@ -1,0 +1,2 @@
+ - Evolutionary Game Theory: Fighting and Contests
+The economic concept of game theory can be readily applied to evolution and behavior. By analyzing encounters between organisms as a mathematical “game,” important information such as fitness payoffs and the proportions of “strategies” played by each group within a population can be inferred. While oftentimes these games are too simplified to apply directly to actual examples in nature, they are still useful models that help convey important concepts.
