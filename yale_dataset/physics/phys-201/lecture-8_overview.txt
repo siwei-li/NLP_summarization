@@ -1,0 +1,2 @@
+ - Circuits and Magnetism I
+After a description of more complicated electric circuits, the basic ideas underlying magnetism are discussed and the relationship between electrical charges and magnetic fields is explored. Magnetism is caused and experienced only by moving charges. The Lorentz force on a charge is described and used to deduce the force on a current carrying wire. The cyclotron and velocity selector are described.

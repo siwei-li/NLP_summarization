@@ -1,0 +1,2 @@
+ - Lenz's and Faraday's Laws
+The electric effect of a changing magnetic field is described using Faraday’s Law. The direction of the current so generated is given by Lenz’s Law. The operation and energy accounting of the generator are described. The concept of inductance is introduced. The Betatron is described as an example of Faraday’s Law. Self and mutual inductance are introduced. The energy density in a magnetic field is derived.

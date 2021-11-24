@@ -1,0 +1,2 @@
+ - Alternative Breeding Strategies
+Breeding strategies differ both among males and females of the same species as well as among different species. The difference in breeding strategies among members of the same species can usually be linked to frequency dependence. If the species is at evolutionary equilibrium, the relative fitnesses of these different strategies will be identical. Differing strategies have been found at the level of the gamete as well as at the level of different organisms and species.

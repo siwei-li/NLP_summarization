@@ -1,0 +1,2 @@
+ - Cell Culture Engineering
+Professor Saltzman reviews the concept of gene therapy, and gives some examples of where this is applied. Methods to help deliver DNA into cells using viruses and cationic lipids are discussed, as a way to overcome some challenges in gene therapy. Next, Professor Saltzman gives a brief introduction into bacterial and mammalian cell physiology. He describes the different tissues in the body, the cell development/differentiation process, the anchorage dependence of mammalian cells that allows them to form an organism, and the extracellular matrix.

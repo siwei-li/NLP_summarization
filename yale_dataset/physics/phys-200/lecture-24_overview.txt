@@ -1,0 +1,2 @@
+ - The Second Law of Thermodynamics (cont.) and Entropy
+The focus of the lecture is the concept of entropy. Specific examples are given to calculate the entropy change for a number of different processes. Boltzmann’s microscopic formula for entropy is introduced and used to explain irreversibility.

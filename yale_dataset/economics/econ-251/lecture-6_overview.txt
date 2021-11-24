@@ -1,0 +1,2 @@
+ - Irving Fisher's Impatience Theory of Interest
+Building on the general equilibrium setup solved in the last week, this lecture looks in depth at the relationships between productivity, patience, prices, allocations, and nominal and real interest rates. The solutions are given to three of Fisher’s famous examples: What happens to interest rates when people become more or less patient? What happens when they expect to receive windfall riches sometime in the future? And, what happens when wealth in an economy is redistributed from the poor to the rich?

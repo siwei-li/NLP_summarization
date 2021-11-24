@@ -1,0 +1,2 @@
+ - Ray or Geometrical Optics I
+Geometric optics is discussed as an approximation to wave theory when the wavelength is very small compared to other lengths in the problem (such as the size of openings). Many results of geometric optics involving reflection, refraction (mirrors and lenses) are derived in a unified way using Fermat’s Principle of Least Time.

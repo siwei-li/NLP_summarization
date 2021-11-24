@@ -1,0 +1,2 @@
+ - The Universal Principle of Risk Management: Pooling and the Hedging of Risks
+Statistics and mathematics underlie the theories of finance. Probability Theory and various distribution types are important to understanding finance. Risk management, for instance, depends on tools such as variance, standard deviation, correlation, and regression analysis. Financial analysis methods such as present values and valuing streams of payments are fundamental to understanding the time value of money and have been in practice for centuries.

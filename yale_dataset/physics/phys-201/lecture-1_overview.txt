@@ -1,0 +1,2 @@
+ - Electrostatics
+The course begins with a discussion of electricity. The concept of charge is introduced, and the properties of electrical forces are compared with those of other familiar forces, such as gravitation. Coulomb’s Law, along with the principle of superposition, allows for the calculation of electrostatic forces from a given charge distribution.

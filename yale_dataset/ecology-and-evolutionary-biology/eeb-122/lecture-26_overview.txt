@@ -1,0 +1,2 @@
+ - Population Growth: Density Effects
+The growth of populations is held in check by several factors. These can include predators, food and other resources, and density. Population density affects growth rate by determining how likely is it that an organism will interact with a member of its own species compared to an organism of a different species. Population growth studies rely on the mathematics of logs and exponents.

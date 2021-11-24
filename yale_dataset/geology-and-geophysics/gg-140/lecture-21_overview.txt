@@ -1,0 +1,2 @@
+ - Ocean Currents
+The atmosphere forces the ocean in three ways: addition and removal of heat, precipitation and evaporation, and wind stress. The former two processes influence the density of sea water. Gravity acts on these density differences to cause large-scale thermohaline currents Wind driven ocean currents are forced by the wind stress acting on the ocean surface which indirectly causes geostrophic currents.

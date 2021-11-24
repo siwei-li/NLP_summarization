@@ -1,0 +1,2 @@
+ - Wave Theory of Light
+Young’s double slit experiment shows clearly that light is a wave. (In order to observe the wave behavior of light, the slit size and separation should be comparable or smaller than the wavelength of light.) Interference is described using real and complex numbers (in anticipation of quantum mechanics). Grating and crystal diffraction are analyzed.

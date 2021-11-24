@@ -1,0 +1,2 @@
+ - Hydrostatic Balance
+The hydrostatic law describes the weight of a fluid overlying a given area, or the pressure at a particular point. It can be used to calculate the approximate atmospheric mass over a particular area, or to calculate the change in pressure over a given change in altitude. A calculation of the pressure difference from the ground to the twelfth floor of Klein Biology Tower is found to agree well with measurements taken at both locations. The hydrostatic law also applies to pressure changes with depth in the ocean.

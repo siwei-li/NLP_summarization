@@ -1,0 +1,2 @@
+ - Fluid Dynamics and Statics and Bernoulli's Equation
+The focus of the lecture is on fluid dynamics and statics. Different properties are discussed, such as density and pressure. The Archimedes’ Principle is introduced and demonstrated through a number of problems. The final topic of the lecture is Bernoulli’s Equation.

@@ -1,0 +1,2 @@
+ - Quantum Mechanics II
+Lecture begins with a detailed review of the double slit experiment with electrons. The fate of an electron traversing the double slit is determined by a wave putting an end to Newtonian mechanics. The momentum and position of an electron cannot both be totally known simultaneously. The wave function is used to describe a probability density function for an electron. Heuristic arguments are given for the wave function describing a particle of definite momentum.

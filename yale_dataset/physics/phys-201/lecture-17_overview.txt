@@ -1,0 +1,2 @@
+ - Ray or Geometrical Optics II
+Ray diagrams are used to investigate the behavior of light incident on mirrors and lenses. The principle of least time is used to show that all rays from an object in front of a concave mirror focus on the image point if they are not too far from the axis. The experiments describing the breakdown of geometric optics are discussed.

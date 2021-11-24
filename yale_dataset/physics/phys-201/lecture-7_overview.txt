@@ -1,0 +1,2 @@
+ - Resistance
+The lecture begins with a discussion of electric potential distribution in conductors. Image charges are introduced and exploited. Capacitance is explained in greater detail and illustrated using the parallel plate capacitor. The energy stored in the electric field is derived. The forces acting on an electric current flowing through a conducting wire are examined. The RC circuits and its energetics are discussed. The EMF due to a battery is explained.

@@ -1,0 +1,2 @@
+ - Quantum Mechanics III
+The fact that the wave function provides the complete description of a particle’s location and momentum is emphasized. Measurement collapses the wave function into a spike located at the measured value. The quantization of momentum for a particle on a ring is deduced.

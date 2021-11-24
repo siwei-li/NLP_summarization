@@ -1,0 +1,2 @@
+ - The Perfect Gas Law
+The Perfect Gas Law relates temperature, pressure, and density of gases in the atmosphere. It can be used to demonstrate why warm air rises, cool air sinks, and helium balloons float in the air. Buoyancy forces act in fluids (both water and air) when fluid is displaced by a parcel of a fluid with a different density. A combination of buoyancy force and the relationship given in the Ideal Gas Law govern the motion of parcels of gas in the atmosphere.

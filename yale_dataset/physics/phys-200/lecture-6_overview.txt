@@ -1,0 +1,2 @@
+ - Law of Conservation of Energy in Higher Dimensions
+The discussion on the Law of Conservation of Energy continues but is applied in higher dimensions. The notion of a function with two variables is reviewed. Conservative forces are explained and students are taught how to recognize and manufacture them.

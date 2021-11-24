@@ -1,0 +1,2 @@
+ - Phylogeny and Systematics
+The Tree of Life must be discovered through rigorous analysis. Genetic information is crucial because appearances can be deceiving, and species that look similar can prove to be genetically very dissimilar and not share recent common ancestors. Two criteria, used to determine what the “correct” Tree is, are simplicity and whether the tree maximizes the probability of observing what we actually see.

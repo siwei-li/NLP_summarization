@@ -1,0 +1,2 @@
+ - Computing Equilibrium
+Our understanding of the economy will be more tangible and vivid if we can in principle explain all the economic decisions of every agent in the economy. This lecture demonstrates, with two examples, how the theory lets us calculate equilibrium prices and allocations in a simple economy, either by hand or using a computer. In future lectures we shall extend this method so as to compute equilibrium in financial economies with stocks and bonds and other financial assets.

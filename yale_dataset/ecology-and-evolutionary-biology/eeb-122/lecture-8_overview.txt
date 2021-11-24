@@ -1,0 +1,2 @@
+ - The Expression of Variation: Reaction Norms
+Reaction norms depict the range of phenotypes a single genotype can produce, depending on the environment. Reaction norms must fit within an organism’s phylogenetic constraints. They can differ for different individuals within a population, but some traits differ very little based on the environment; some do not differ at all.

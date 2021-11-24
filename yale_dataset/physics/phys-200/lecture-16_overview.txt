@@ -1,0 +1,2 @@
+ - The Taylor Series and Other Mathematical Concepts
+The lecture covers a number of mathematical concepts. The Taylor series is introduced and its properties discussed, supplemented by various examples. Complex numbers are explained in some detail, especially in their polar form. The lecture ends with a discussion of simple harmonic motion.

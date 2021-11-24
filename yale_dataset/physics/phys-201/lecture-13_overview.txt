@@ -1,0 +1,2 @@
+ - LCR Circuits — AC Voltage
+The mathematics underlying LCR circuit theory for AC currents is discussed. Complex numbers are used to convert differential equations to algebraic equations. The notion of impedance is introduced. The radio is used to illustrate the concepts of resonance and variable capacitance. The body of classical electromagnetism treated so far is reviewed and summarized. The displacement current is introduced, leading to the complete Maxwell equations.

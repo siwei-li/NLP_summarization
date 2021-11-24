@@ -1,0 +1,2 @@
+ - Capacitors
+The electric potential is defined for the electric field. It is introduced as an integral of the electric field making the field the derivative of the potential. After discussing the ideas of electric potential and field as presented in the previous lecture, the concept of capacitance is introduced as a means of storing charge and energy.

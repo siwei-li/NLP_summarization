@@ -1,0 +1,2 @@
+ - Newton's Laws of Motion
+This lecture introduces Newton’s Laws of Motion. The First Law on inertia states that every object will remain in a state of rest or uniform motion in a straight line unless acted upon by an external force. The Second Law () relates the cause (the force ) to the acceleration. Several different forces are discussed in the context of this law. The lecture ends with the Third Law which states that action and reaction are equal and opposite.

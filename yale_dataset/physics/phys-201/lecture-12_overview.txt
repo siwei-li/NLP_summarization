@@ -1,0 +1,2 @@
+ - LCR Circuits — DC Voltage
+Like capacitors, inductors act as energy storage devices in circuits. The relationship between voltage, inductance and current in a variety of circuits with DC voltages is described.

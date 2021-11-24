@@ -1,0 +1,2 @@
+ - Rotations, Part I: Dynamics of Rigid Bodies
+Part I of Rotations. The lecture begins with examining rotation of rigid bodies in two dimensions. The concepts of “rotation” and “translation” are explained. The use of radians is introduced. Angular velocity, angular momentum, angular acceleration, torque and inertia are also discussed. Finally, the Parallel Axis Theorem is expounded.

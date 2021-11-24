@@ -1,0 +1,2 @@
+ - Torque
+This lecture is a continuation of an analogue to Newton’s law: τ= lα. While previous problems examined situations in which τ is not zero, this time the focus is on extreme cases in which there is no torque at all. If there is no torque, α is zero and the angular velocity is constant. The lecture starts with a simple example of a seesaw and moves on to discuss a collection of objects that are somehow subject to a variety of forces but remain in static equilibrium.
