@@ -1,6 +1,8 @@
 import os
-os.environ['CUDA_LAUNCH_BLOCKING'] = "1"
+# os.environ['CUDA_LAUNCH_BLOCKING'] = "1" # for debugging
 import time
+import json
+import pickle
 import torch
 from torch import cuda
 import torch.nn as nn
@@ -26,91 +28,44 @@ import os
 
 # Create a Data Loader Class
 class CNNDailyMailData(Dataset):
-    def __init__(self, dataframe, tokenizer, max_len):
+    def __init__(self, dataframe, tokenizer, max_len, doc_dict, device):
         self.len = len(dataframe)
-        self.data = dataframe
         self.tokenizer = tokenizer
         self.max_len = max_len
-        
+        self.dict_list = []
+
+        for index in range(dataframe.shape[0]):
+            if index%1000==0:
+                print(f"CNNDailyMailData: {index}/{dataframe.shape[0]}")
+
+            sentence = dataframe.iloc[index].sents
+            document = doc_dict[str(dataframe.iloc[index].docs)]
+
+            inputs = self.tokenizer.batch_encode_plus(
+                [sentence, document], 
+                add_special_tokens=True,
+                max_length=self.max_len,
+                padding="max_length",
+                return_token_type_ids=True,
+                truncation=True
+            )
+            ids = inputs['input_ids']
+
+            mask = inputs['attention_mask']
+
+            self.dict_list.append({
+                'sent_ids': torch.tensor(ids[0], dtype=torch.long, device=device),
+                'doc_ids': torch.tensor(ids[1], dtype=torch.long, device=device),
+                'sent_mask': torch.tensor(mask[0], dtype=torch.long, device=device),
+                'doc_mask': torch.tensor(mask[1], dtype=torch.long, device=device),
+                'targets': torch.tensor([dataframe.iloc[index].y], dtype=torch.float, device=device)
+            })
+
     def __getitem__(self, index):
-        # sents_list
-        # sent["text"] 
-        sentence = str(self.data.iloc[index].sents)
-        # sentence = " ".join(sentence.split())
-
-        # doc_dict[doc_id]["article"]
-        document = str(self.data.iloc[index].docs)
-        # document = " ".join(document.split())
-
-        inputs = self.tokenizer.batch_encode_plus(
-            [sentence, document], 
-            add_special_tokens=True,
-            max_length=self.max_len,
-            padding="max_length",
-            return_token_type_ids=True,
-            truncation=True
-        )
-        ids = inputs['input_ids']
-        mask = inputs['attention_mask']
-
-        return {
-            'sent_ids': torch.tensor(ids[0], dtype=torch.long),
-            'doc_ids': torch.tensor(ids[1], dtype=torch.long),
-            'sent_mask': torch.tensor(mask[0], dtype=torch.long),
-            'doc_mask': torch.tensor(mask[1], dtype=torch.long),
-            'targets': torch.tensor([self.data.iloc[index].y], dtype=torch.long)
-        } 
+        return self.dict_list[index]
     
     def __len__(self):
         return self.len
-
-# Create a Data Loader Class
-class CNNDailyMailDataMine(Dataset):
-    def __init__(self, dataframe, tokenizer, max_len):
-        self.len = len(dataframe)
-        self.data = dataframe
-        self.tokenizer = tokenizer
-        self.max_len = max_len
-        
-    def __getitem__(self, index):
-        # sents_list
-        # sent["text"] 
-        sentence = str(self.data.iloc[index].sents)
-        sentence = " ".join(sentence.split())
-
-        # doc_dict[doc_id]["article"]
-        document = str(self.data.iloc[index].docs)
-        document = " ".join(document.split())
-
-        inputs = self.tokenizer.batch_encode_plus(
-            [sentence, document], 
-            add_special_tokens=True,
-            max_length=self.max_len,
-            padding="max_length",
-            return_token_type_ids=True,
-            truncation=True
-        )
-        ids = inputs['input_ids']
-        mask = inputs['attention_mask']
-
-        return {
-            'sent_ids': torch.tensor(ids[0], dtype=torch.long),
-            'doc_ids': torch.tensor(ids[1], dtype=torch.long),
-            'sent_mask': torch.tensor(mask[0], dtype=torch.long),
-            'doc_mask': torch.tensor(mask[1], dtype=torch.long),
-            'targets': torch.tensor([self.data.iloc[index].y], dtype=torch.long)
-        } 
-    
-    def __len__(self):
-        return self.len
-
-
-
-"""## Validation on Test Set"""
-"""## Build Model 
-
-- Build model based on sentence Bert pretrained models.
-"""
 
 # get mean pooling for sentence bert models 
 # ref https://www.sbert.net/examples/applications/computing-embeddings/README.html#sentence-embeddings-with-transformers
@@ -172,21 +127,18 @@ def validate_model(model, testing_loader, test_df, print_n_steps):
 
     with torch.no_grad():
         for i, data in enumerate(testing_loader, 0): 
-            
-            sent_ids = data['sent_ids'].to(device, dtype = torch.long)
-            doc_ids = data['doc_ids'].to(device, dtype = torch.long)
-            sent_mask = data['sent_mask'].to(device, dtype = torch.long)
-            doc_mask = data['doc_mask'].to(device, dtype = torch.long) 
-            targets = data['targets'].to(device, dtype = torch.float)  
-
-            outputs = model(sent_ids, doc_ids, sent_mask, doc_mask) 
+            targets = data['targets']
+            outputs = model(data['sent_ids'], data['doc_ids'], data['sent_mask'], data['doc_mask']) 
             loss = loss_function(outputs, targets)
             tr_loss += loss.item()
             
+            '''
             if torch.count_nonzero(outputs > 0.5)!=0:
-                bias = int(torch.where(outputs>0.5)[0])
-                print(test_df.iloc[i*testing_loader.batch_size + bias].y)
+                bias_arr = torch.where(outputs>0.5)[0].cpu().detach().numpy()
+                for bias in bias_arr:
+                    print(test_df.iloc[i*testing_loader.batch_size + bias].y)
                 #i*4+bias
+            '''
             n_correct += torch.count_nonzero(targets == (outputs > 0.5)).item()
             recall_denominator += torch.count_nonzero(targets == 1).item()
             recall_numerator += torch.count_nonzero((targets == 1)&(outputs>0.5)).item()
@@ -197,7 +149,7 @@ def validate_model(model, testing_loader, test_df, print_n_steps):
             if i%print_n_steps==0:
                 loss_step = tr_loss/nb_tr_steps
                 accu_step = (n_correct*100)/nb_tr_examples 
-                print(str(i* test_params["batch_size"]) + "/" + str(len(train_df)) + " - Steps. Acc ->", accu_step, "Loss ->", loss_step, "Time ->",  time.time()-last_time_stamp)
+                print(str(i* test_params["batch_size"]) + "/" + str(len(test_df)) + " - Steps. Acc ->", accu_step, "Loss ->", loss_step, "Time ->",  time.time()-last_time_stamp)
                 last_time_stamp = time.time()
 
              
@@ -215,14 +167,11 @@ def train(model, training_loader, epoch, print_n_steps):
     nb_tr_steps = 0
     nb_tr_examples = 0
     model.train()
-    for i,data in tqdm(enumerate(training_loader, 0)):
-        sent_ids = data['sent_ids'].to(device, dtype = torch.long)
-        doc_ids = data['doc_ids'].to(device, dtype = torch.long)
-        sent_mask = data['sent_mask'].to(device, dtype = torch.long)
-        doc_mask = data['doc_mask'].to(device, dtype = torch.long) 
-        targets = data['targets'].to(device, dtype = torch.float)  
+    last_time_stamp=time.time()
 
-        outputs = model(sent_ids, doc_ids, sent_mask, doc_mask) 
+    for i,data in enumerate(training_loader, 0):
+        targets = data['targets']
+        outputs = model(data['sent_ids'], data['doc_ids'], data['sent_mask'], data['doc_mask']) 
         loss = loss_function(outputs, targets)
         tr_loss += loss.item() 
         n_correct += torch.count_nonzero(targets == (outputs > 0.5)).item()
@@ -230,11 +179,12 @@ def train(model, training_loader, epoch, print_n_steps):
         nb_tr_steps += 1
         nb_tr_examples+=targets.size(0)
         
-        if i%print_n_steps==0:
+        if i!=0 and i%print_n_steps==0:
             loss_step = tr_loss/nb_tr_steps
             accu_step = (n_correct*100)/nb_tr_examples 
-            print(str(i* train_params["batch_size"]) + "/" + str(len(train_df)) + " - Steps. Acc ->", accu_step, "Loss ->", loss_step)
+            print(str(i* train_params["batch_size"]) + "/" + str(len(train_df)) + " - Steps. Acc ->", accu_step, "Loss ->", loss_step, "Time ->",  time.time()-last_time_stamp)
             acc_step_holder.append(accu_step), loss_step_holder.append(loss_step)
+            last_time_stamp = time.time()
         optimizer.zero_grad()
         loss.backward()
         # # When using GPU
@@ -253,39 +203,48 @@ if __name__=="__main__":
     sum_dir = "" # location to store and load models
 
     # Defining some key variables that will be used later on in the training
-    TRAIN_FROM_SCRATCH = True
+    TRAIN_FROM_SCRATCH = False
     MAX_LEN = 512
-    TRAIN_BATCH_SIZE = 10
-    VALID_BATCH_SIZE = 10
-    EPOCHS = 3
+    TRAIN_BATCH_SIZE = 4
+    VALID_BATCH_SIZE = 4
+    EPOCHS = 10
     LEARNING_RATE = 1e-05 
+    device = 'cuda' if cuda.is_available() else 'cpu'
 
     # load dataframes containining preprocessed samples from CNN/Dailymail Dataset
     train_df = pd.read_json(sum_dir + "train_data.json")
+
+    train_doc_dict = json.load(open('train_doc_dict.json', 'r'))
     test_df = pd.read_json(sum_dir +"test_data.json") 
+    test_doc_dict = json.load(open('test_doc_dict.json', 'r'))
     print( "Train, test shape", train_df.shape, test_df.shape)
 
-    """## Create a Data Loader Class 
+    t1=time.time()
+    if os.path.isfile('training_set.robin') and os.path.isfile('testing_set.robin'):
+        training_set = pickle.load(open('training_set.robin', 'rb'))
+        testing_set = pickle.load(open('testing_set.robin', 'rb'))
+    else:
+        training_set = CNNDailyMailData(train_df, tokenizer, MAX_LEN, train_doc_dict, device)
+        testing_set = CNNDailyMailData(test_df, tokenizer, MAX_LEN, test_doc_dict, device)
+        pickle.dump(training_set, open('training_set.robin','wb'))
+        pickle.dump(testing_set, open('testing_set.robin','wb'))
 
-    - Create a dataloader class that yields sentences and documentss and labels.
-    """
-    training_set = CNNDailyMailData(train_df, tokenizer, MAX_LEN)
-    testing_set = CNNDailyMailData(test_df, tokenizer, MAX_LEN)
-
+    t2=time.time()
+    print("Preprocess time: ", t2-t1)
     train_params = {'batch_size': TRAIN_BATCH_SIZE,
                     'shuffle': True,
-                    'num_workers': 4
+                    'num_workers': 0,
                     }
 
     test_params = {'batch_size': VALID_BATCH_SIZE,
                     'shuffle': True,
-                    'num_workers': 4
+                    'num_workers': 0,
                     }
 
     training_loader = DataLoader(training_set, **train_params)
     testing_loader = DataLoader(testing_set, **test_params)
     
-    device = 'cuda' if cuda.is_available() else 'cpu'
+    
 
     model = SentenceBertClass(model_name=sentenc_model_name)
     model.to(device)
@@ -294,13 +253,16 @@ if __name__=="__main__":
     optimizer = torch.optim.Adam(params =  model.parameters(), lr=LEARNING_RATE)
     print_n_steps = 300
     if TRAIN_FROM_SCRATCH:
-        model.load_state_dict(torch.load("models/minilm_bal_exsum.pth"))
+        if os.path.isfile('models/minilm_bal_exsum.pth'):
+            print("Loaded model from models/minilm_bal_exsum.pth")
+            model.load_state_dict(torch.load("models/minilm_bal_exsum.pth"))
         # Defining the training function on the 80% of the dataset for tuning the distilbert model
         
         acc_step_holder, loss_step_holder = [], []
 
         for epoch in range(EPOCHS):
             model = train(model, training_loader, epoch, print_n_steps)
+            torch.save(model.state_dict(), "models/minilm_bal_exsum.pth")
 
         fig, (ax1, ax2) = plt.subplots(1,2, figsize=(16,5))
         ax1.plot(acc_step_holder, label="Accuracy")
@@ -310,7 +272,7 @@ if __name__=="__main__":
         fig.tight_layout()
         plt.show()
 
-        acc = validate_model(model, testing_loader)
+        acc = validate_model(model, testing_loader, test_df, print_n_steps)
         print("Accuracy on test data = %0.2f%%" % acc)
 
         """Hint: Try a larger sentence embedding [pretrained model](https://www.sbert.net/docs/pretrained_models.html#sentence-embedding-models) to improve overall train/test accuracy.
@@ -318,6 +280,7 @@ if __name__=="__main__":
 
         os.makedirs("models", exist_ok=True)
         torch.save(model.state_dict(), "models/minilm_bal_exsum.pth")
+
     else:
         model.load_state_dict(torch.load("models/minilm_bal_exsum.pth"))
         acc = validate_model(model, testing_loader, test_df, print_n_steps)
