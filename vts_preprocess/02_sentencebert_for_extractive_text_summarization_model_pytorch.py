@@ -83,9 +83,9 @@ class SentenceBertClass(torch.nn.Module):
     def __init__(self, model_name="sentence-transformers/paraphrase-MiniLM-L3-v2", in_features=384):
         super(SentenceBertClass, self).__init__()
         self.l1 = AutoModel.from_pretrained(model_name)
-        self.pre_classifier = torch.nn.Linear(in_features*3, 768)
+        self.pre_classifier = torch.nn.Linear(in_features*3, 768)       # 768 org, try 384
         self.dropout = torch.nn.Dropout(0.3)
-        self.classifier = torch.nn.Linear(768, 1)
+        self.classifier = torch.nn.Linear(768, 1)                       # 768 org
         self.classifierSigmoid = torch.nn.Sigmoid()
 
     def forward(self, sent_ids, doc_ids, sent_mask, doc_mask):
@@ -182,7 +182,7 @@ def train(model, training_loader, epoch, print_n_steps):
         if i!=0 and i%print_n_steps==0:
             loss_step = tr_loss/nb_tr_steps
             accu_step = (n_correct*100)/nb_tr_examples 
-            print(str(i* train_params["batch_size"]) + "/" + str(len(train_df)) + " - Steps. Acc ->", accu_step, "Loss ->", loss_step, "Time ->",  time.time()-last_time_stamp)
+            # print(str(i* train_params["batch_size"]) + "/" + str(len(train_df)) + " - Steps. Acc ->", accu_step, "Loss ->", loss_step, "Time ->",  time.time()-last_time_stamp)
             acc_step_holder.append(accu_step), loss_step_holder.append(loss_step)
             last_time_stamp = time.time()
         optimizer.zero_grad()
@@ -190,10 +190,10 @@ def train(model, training_loader, epoch, print_n_steps):
         # # When using GPU
         optimizer.step()
 
-    print(f'The Total Accuracy for Epoch {epoch}: {(n_correct*100)/nb_tr_examples}')
+    # print(f'The Total Accuracy for Epoch {epoch}: {(n_correct*100)/nb_tr_examples}')
     epoch_loss = tr_loss/nb_tr_steps
     epoch_accu = (n_correct*100)/nb_tr_examples
-    print(f"Training Loss Epoch: {epoch_loss}")
+    # print(f"Training Loss Epoch: {epoch_loss}")
     print(f"Training Accuracy Epoch: {epoch_accu}")
 
     return model
@@ -203,7 +203,7 @@ if __name__=="__main__":
     sum_dir = "" # location to store and load models
 
     # Defining some key variables that will be used later on in the training
-    TRAIN_FROM_SCRATCH = False
+    TRAIN_FROM_SCRATCH = True
     MAX_LEN = 512
     TRAIN_BATCH_SIZE = 4
     VALID_BATCH_SIZE = 4
@@ -244,44 +244,46 @@ if __name__=="__main__":
     training_loader = DataLoader(training_set, **train_params)
     testing_loader = DataLoader(testing_set, **test_params)
     
-    
+    weight_decay_list = [(9, 0)]
 
-    model = SentenceBertClass(model_name=sentenc_model_name)
-    model.to(device)
+    for number, weight_decay in weight_decay_list:
+        model = SentenceBertClass(model_name=sentenc_model_name)
+        model.to(device)
+        loss_function = torch.nn.BCELoss()
+        optimizer = torch.optim.Adam(params =  model.parameters(), lr=LEARNING_RATE, weight_decay=weight_decay)
+        print_n_steps = 300
+        if TRAIN_FROM_SCRATCH:
+            # if os.path.isfile('models/minilm_bal_exsum.pth'):
+            #     print("Loaded model from models/minilm_bal_exsum.pth")
+            #     model.load_state_dict(torch.load("models/minilm_bal_exsum.pth"))
+            # Defining the training function on the 80% of the dataset for tuning the distilbert model
+            
+            acc_step_holder, loss_step_holder = [], []
 
-    loss_function = torch.nn.BCELoss()
-    optimizer = torch.optim.Adam(params =  model.parameters(), lr=LEARNING_RATE)
-    print_n_steps = 300
-    if TRAIN_FROM_SCRATCH:
-        if os.path.isfile('models/minilm_bal_exsum.pth'):
-            print("Loaded model from models/minilm_bal_exsum.pth")
-            model.load_state_dict(torch.load("models/minilm_bal_exsum.pth"))
-        # Defining the training function on the 80% of the dataset for tuning the distilbert model
-        
-        acc_step_holder, loss_step_holder = [], []
+            for epoch in range(EPOCHS):
+                model = train(model, training_loader, epoch, print_n_steps)
+                torch.save(model.state_dict(), f"models/minilm_bal_exsum{number}.pth")
 
-        for epoch in range(EPOCHS):
-            model = train(model, training_loader, epoch, print_n_steps)
+            fig, (ax1, ax2) = plt.subplots(1,2, figsize=(16,5))
+            ax1.plot(acc_step_holder, label="Accuracy")
+            ax2.plot(loss_step_holder, label="Loss")
+            ax1.title.set_text("Accuracy")
+            ax2.title.set_text("Loss")
+            fig.tight_layout()
+            # plt.show()
+            plt.savefig(f'train{number}.png')
+
+            acc = validate_model(model, testing_loader, test_df, print_n_steps)
+            print(f"{number}Accuracy on test data = %0.2f%%" % acc)
+
+
+            """Hint: Try a larger sentence embedding [pretrained model](https://www.sbert.net/docs/pretrained_models.html#sentence-embedding-models) to improve overall train/test accuracy.
+            """
+
+            os.makedirs("models", exist_ok=True)
             torch.save(model.state_dict(), "models/minilm_bal_exsum.pth")
 
-        fig, (ax1, ax2) = plt.subplots(1,2, figsize=(16,5))
-        ax1.plot(acc_step_holder, label="Accuracy")
-        ax2.plot(loss_step_holder, label="Loss")
-        ax1.title.set_text("Accuracy")
-        ax2.title.set_text("Loss")
-        fig.tight_layout()
-        plt.show()
-
-        acc = validate_model(model, testing_loader, test_df, print_n_steps)
-        print("Accuracy on test data = %0.2f%%" % acc)
-
-        """Hint: Try a larger sentence embedding [pretrained model](https://www.sbert.net/docs/pretrained_models.html#sentence-embedding-models) to improve overall train/test accuracy.
-        """
-
-        os.makedirs("models", exist_ok=True)
-        torch.save(model.state_dict(), "models/minilm_bal_exsum.pth")
-
-    else:
-        model.load_state_dict(torch.load("models/minilm_bal_exsum.pth"))
-        acc = validate_model(model, testing_loader, test_df, print_n_steps)
-        print("Accuracy on test data = %0.2f%%" % acc)
+        else:
+            model.load_state_dict(torch.load("models/minilm_bal_exsum.pth"))
+            acc = validate_model(model, testing_loader, test_df, print_n_steps)
+            print("Accuracy on test data = %0.2f%%" % acc)
