@@ -1,3 +1,4 @@
+*.csv
 obsolete/
 
 # Byte-compiled / optimized / DLL files
