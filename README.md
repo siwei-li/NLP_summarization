@@ -5,7 +5,7 @@ The expansion of the internet has resulted in an abundance of multi-sourced info
 
 This project is intended to summarize educational videos by experimenting with existing methods of long-text summarization for video transcript summarization. We used texts scraped from the Open Yale Courses website (https://oyc.yale.edu/courses); the corpus contains more than 1000 long transcripts and corresponding summaries from lectures of 41 courses. Our implementation takes over from fine-tuning BART model and compares performance of abstractive summarization alone and that of a combined approach of both extractive and abstractive summarization. 
 
-Please find the PDF report in the repo.
+Please find the [PDF](https://github.com/siwei-li/NLP_summarization/blob/master/Report.pdf) report in the repo.
 
 ---
 
